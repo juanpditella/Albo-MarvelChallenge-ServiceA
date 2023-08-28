@@ -1,4 +1,4 @@
-package ar.com.tdm.mock.entities.response_entities;
+package com.ServicioA.entities.response_entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

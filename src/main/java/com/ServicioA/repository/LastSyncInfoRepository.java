@@ -1,7 +1,8 @@
-package ar.com.tdm.mock.repository;
+package com.ServicioA.repository;
 
 
-import ar.com.tdm.mock.entities.repository_entities.LastSyncInfo;
+
+import com.ServicioA.entities.repository_entities.LastSyncInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

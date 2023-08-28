@@ -1,8 +1,9 @@
-package ar.com.tdm.mock.services;
+package com.ServicioA.services;
 
-import ar.com.tdm.mock.entities.response_entities.CollaborationResponse;
-import ar.com.tdm.mock.exceptions.HeroNotFoundException;
-import ar.com.tdm.mock.exceptions.LastTimeNotFoundException;
+
+import com.ServicioA.entities.response_entities.CollaborationResponse;
+import com.ServicioA.exceptions.HeroNotFoundException;
+import com.ServicioA.exceptions.LastTimeNotFoundException;
 
 public interface ServiceAService {
 

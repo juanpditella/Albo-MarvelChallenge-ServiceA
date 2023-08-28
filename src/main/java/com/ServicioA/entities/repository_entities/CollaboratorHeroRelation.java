@@ -1,4 +1,4 @@
-package ar.com.tdm.mock.entities.repository_entities;
+package com.ServicioA.entities.repository_entities;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
