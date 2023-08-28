@@ -23,11 +23,15 @@ public class ServiceAControllerImpl implements ServiceAController {
         CollaborationResponse collaborationResponse = new CollaborationResponse();
         try {
             collaborationResponse = this.serviceAService.getCollaborators(character);
+            collaborationResponse.setMessage("El servicio fue ejecutado correctamente.");
         } catch (HeroNotFoundException hnf) {
-            return ResponseEntity.notFound().build();  // Respuesta 404
+            collaborationResponse.setMessage("El heroe "+character+ " no es un heroe presente en nuestra base de datos.");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(collaborationResponse);
         } catch (LastTimeNotFoundException ltnf) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();  // Respuesta 500
+            collaborationResponse.setMessage("No existe una sincronizacion de datos valida en nuestra base de datos.");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(collaborationResponse);
         }
         return ResponseEntity.ok(collaborationResponse);
     }
 }
+

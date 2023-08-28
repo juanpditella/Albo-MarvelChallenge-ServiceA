@@ -36,7 +36,6 @@ public class ServiceAServiceImpl implements ServiceAService {
             for (Creator collaborator : collaborators) {
                 String role = collaborator.getRole();
                 String name = collaborator.getName();
-
                 switch (role) {
                     case "editor":
                         response.addEditor(name);
@@ -49,7 +48,6 @@ public class ServiceAServiceImpl implements ServiceAService {
                         break;
                 }
             }
-
             try{
                 String lastSync = this.getLastSyncDateTime().toString();
                 response.setLastSync(lastSync);
@@ -57,6 +55,7 @@ public class ServiceAServiceImpl implements ServiceAService {
             catch (LastTimeNotFoundException ltnf){
                 throw new LastTimeNotFoundException(ltnf.getMessage());
             }
+            System.out.println("Aaaaaaaaaaaaaa "+ response.toString());
             return response;
         }
     }

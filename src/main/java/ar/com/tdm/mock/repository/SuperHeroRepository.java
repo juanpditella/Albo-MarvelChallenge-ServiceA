@@ -13,7 +13,8 @@ import java.util.List;
 public interface SuperHeroRepository extends JpaRepository<SuperHero, Long> {
     SuperHero findByName(String superHeroName);
 
-    @Query("SELECT chr.id.idCreator FROM CollaboratorHeroRelation chr " +
+    @Query("SELECT c FROM CollaboratorHeroRelation chr " +
+            "JOIN Creator c ON c.id = chr.id.idCreator " +
             "WHERE chr.id.superHeroId = :heroId")
     List<Creator> findCollaboratorsByHeroId(@Param("heroId") Long heroId);
 }

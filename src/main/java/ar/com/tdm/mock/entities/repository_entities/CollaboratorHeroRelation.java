@@ -19,5 +19,8 @@ public class CollaboratorHeroRelation {
     @JoinColumn(name = "superHeroId", insertable = false, updatable = false)
     private SuperHero superHero;
 
-    // Other properties and methods
+    @ManyToOne
+    @JoinColumn(name = "idCreator", insertable = false, updatable = false)
+    private Creator creator;
+
 }

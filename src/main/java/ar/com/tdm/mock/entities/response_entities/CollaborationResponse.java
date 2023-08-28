@@ -4,16 +4,24 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
 public class CollaborationResponse {
     private String lastSync;
     private List<String> editors;
     private List<String> writers;
     private List<String> colorists;
+    private String message;
+
+
+    public CollaborationResponse() {
+        this.editors = new ArrayList<>();
+        this.writers = new ArrayList<>();
+        this.colorists = new ArrayList<>();
+    }
 
     public boolean addEditor(String name) {
         if (!editors.contains(name)) {
