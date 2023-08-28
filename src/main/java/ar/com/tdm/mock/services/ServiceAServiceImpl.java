@@ -12,6 +12,7 @@ import ar.com.tdm.mock.repository.SuperHeroRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Service
@@ -49,13 +50,16 @@ public class ServiceAServiceImpl implements ServiceAService {
                 }
             }
             try{
-                String lastSync = this.getLastSyncDateTime().toString();
-                response.setLastSync(lastSync);
+                LocalDateTime lastSyncDateTime = this.getLastSyncDateTime();
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+                String formattedDateTime = lastSyncDateTime.format(formatter);
+
+                String message = String.format("Fecha de la última sincronización: %s", formattedDateTime);
+                response.setLastSync(message);
             }
             catch (LastTimeNotFoundException ltnf){
                 throw new LastTimeNotFoundException(ltnf.getMessage());
             }
-            System.out.println("Aaaaaaaaaaaaaa "+ response.toString());
             return response;
         }
     }
